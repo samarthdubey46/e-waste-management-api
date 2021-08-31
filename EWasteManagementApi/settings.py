@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'User',
     'Complaints',
     'Blogs',
+
 ]
 AUTH_USER_MODEL = 'User.User'
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -61,12 +64,13 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
-        'rest_framework.parsers.FormParser',
         # 'rest_framework.parsers.FileUploadParser',
+        'rest_framework.parsers.FormParser',
         'rest_framework.parsers.MultiPartParser',
-    ],
-    'DEFAULT_PAGINATION_CLASS': 'Blogs.pagination.CustomPagination',
-    'PAGE_SIZE': 3,
+
+    ]
+    #    'DEFAULT_PAGINATION_CLASS': 'Blogs.pagination.CustomPagination',
+    #   'PAGE_SIZE': 3,
 
 }
 REST_KNOX = {
